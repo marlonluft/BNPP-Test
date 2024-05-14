@@ -94,6 +94,9 @@ namespace TestProject1
         public void GivenAListWithOneEmptyValue_WhenProcessFinancialInstruments_ThenReturnsError(string ISINCode) => ValidateWrongISINCode([ISINCode]);
 
         [Test]
+        public void GivenAListWithOnNullValue_WhenProcessFinancialInstruments_ThenReturnsError() => ValidateWrongISINCode([null]);
+
+        [Test]
         [TestCase("12A")]
         public void GivenAListWithAnInvalidISINShorterThan12Characters_WhenProcessFinancialInstruments_ThenReturnsError(string ISINCode) => ValidateWrongISINCode([ISINCode]);
 

@@ -27,7 +27,7 @@ namespace ClassLibrary1.Core
 
         public Result ProcessFinancialInstruments(IEnumerable<string> ISINCodes, CancellationToken cancellationToken)
         {
-            if (ISINCodes?.Any(x => x.Length != ISINLength) ?? true)
+            if (ISINCodes?.Any(x => x?.Length != ISINLength) ?? true)
                 return Result.FromError("One or More ISIN codes are invalid");
 
             var financialInstrumentsResult = RetrieveFinancialInstruments(ISINCodes, cancellationToken);
